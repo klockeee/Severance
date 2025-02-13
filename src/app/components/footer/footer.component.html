@@ -1,0 +1,41 @@
+<div class="footer-container" *ngIf="{
+    bins: bins$ | async
+} as asyncData">
+    @for (bin of asyncData.bins; track bin.id) {
+        <div class="refiner-box-container" *ngIf="{
+            opening: bin.status == status.Opening,
+            opened: bin.status == status.Opened,
+            closing: bin.status == status.Closing
+        } as data">
+            <div class="refiner-box-lid">
+                <div class="refiner-box-lid-1" [ngClass]="{'refiner-box-lid-1-opening': data.opening, 'refiner-box-lid-1-opened': data.opened, 'refiner-box-lid-1-closing': data.closing}"></div>
+                <div class="refiner-box-lid-2" [ngClass]="{'refiner-box-lid-2-opening': data.opening, 'refiner-box-lid-2-opened': data.opened, 'refiner-box-lid-2-closing': data.closing}"></div>
+            </div>
+            <div class="refiner-box-panel" [ngClass]="{'refiner-box-panel-opening': data.opening, 'refiner-box-panel-opened': data.opened, 'refiner-box-panel-closing': data.closing}">
+                @for (principle of kierPrinciples | keyvalue; track $index) {
+                    <div class="refiner-box-panel-principle">
+                        <div [style.color]="principle.value">
+                            {{principle.key}}
+                        </div>
+                        <div class="refiner-box-panel-progress-bar-container">
+                            <div class="refiner-box-panel-progress-bar" [style.background]="principle.value" [style.width]="getProp(bin, principle.key)+'%'"></div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="refiner-box">
+                <div class="refiner-box-id">
+                    <span id="bin-{{bin.id}}">
+                        {{bin.id}}
+                    </span>
+                </div>
+                <div class="refiner-box-progress-bar-container">
+                    <span class="refiner-box-progress-bar-progress-status">
+                        {{bin.progress}}%
+                    </span>
+                    <div class="refiner-box-progress-bar-progress-bar" [style.width]="bin.progress+'%'"></div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

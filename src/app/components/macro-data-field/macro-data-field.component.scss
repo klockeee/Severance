@@ -1,0 +1,11 @@
+:host {
+    height: 100%;
+    overflow: hidden;
+}
+
+.macro-data-field-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    height: 100%;
+}

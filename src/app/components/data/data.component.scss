@@ -1,0 +1,54 @@
+:root {
+    --randomX: 0;
+    --randomY: 0;
+    --randomSize: 0px; 
+    --randomDuration: 0s;
+    --randomShake1: translate(0px, 0px);
+    --randomShake2: translate(0px, 0px);
+    --randomShake3: translate(0px, 0px);
+    --randomShake4: translate(0px, 0px);
+}
+
+:host {
+    user-select: none;
+}
+
+.data-container, .data {
+    width: 75px;
+    height: 75px;
+}
+
+.data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    line-height: 1.6;
+    text-shadow: 0 0 3px var(--secondary-color);
+}
+
+.in-danger {
+    animation: random-animation var(--randomDuration) alternate infinite, shake 5s alternate infinite;    
+}
+
+.afraid {
+    animation: shake 0.5s alternate infinite;    
+}
+
+@keyframes random-animation {
+    0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(var(--randomX), var(--randomY));
+        font-size: var(--randomSize);
+      }
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: var(--randomShake1); }
+    50% { transform: var(--randomShake2); }
+    75% { transform: var(--randomShake3); }
+    100% { transform: var(--randomShake4); }
+}

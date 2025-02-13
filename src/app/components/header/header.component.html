@@ -1,0 +1,11 @@
+<div class="header-container" *ngIf="{
+    name: name$ | async,
+    progress: progress$ | async
+} as asyncData">
+    <div class="progress-bar-container">
+        <span class="name">{{asyncData.name}}</span>
+        <span class="progress-status">{{asyncData.progress}}% Complete</span>
+        <div class="progress-bar" [style.width]="asyncData.progress+'%'"></div>
+    </div>
+    <img class="lumon" src="assets/images/lumon.png" alt="Lumon">
+</div>

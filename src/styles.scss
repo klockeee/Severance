@@ -1,0 +1,30 @@
+html::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        rgba(16, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%
+         ), 
+         linear-gradient(90deg,
+            rgba(0, 140, 255, 0.06), 
+            rgba(0, 140, 255, 0.02),
+            #abf9ff57
+        );
+    z-index: 2;
+    background-size: 100% 4px, 4px 100%;
+    pointer-events: none;  
+    filter: url("#pixelate");
+}
+
+html {
+    background-color: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    perspective: 800px;
+    transform-style: preserve-3d;
+}

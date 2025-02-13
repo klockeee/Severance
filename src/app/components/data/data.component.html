@@ -1,0 +1,14 @@
+<div #dataContainer class="data-container" [ngClass]="{'in-danger': data.dangerous, 'afraid': data.dangerous ? null : data.afraid, 'regular': !data.dangerous && !data.afraid}" style="
+    --randomX: {{randomX}};
+    --randomY: {{randomY}};
+    --randomSize: {{randomSize}}px; 
+    --randomDuration: {{randomDuration}}s;
+    --randomShake1: translate({{randomShake[0][0]}}px, {{randomShake[0][1]}}px);
+    --randomShake2: translate({{randomShake[1][0]}}px, {{randomShake[1][1]}}px);
+    --randomShake3: translate({{randomShake[2][0]}}px, {{randomShake[2][1]}}px);
+    --randomShake4: translate({{randomShake[3][0]}}px, {{randomShake[3][1]}}px);
+">
+    <span #dataSpan class="data">
+        {{data.value}}
+    </span>
+</div>

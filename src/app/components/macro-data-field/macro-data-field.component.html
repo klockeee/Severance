@@ -1,0 +1,15 @@
+<div 
+    class="macro-data-field-container" 
+    [ngStyle]="{'pointer-events': block$ | async}"
+    *ngIf="{
+        macroData: macroData$ | async
+    } as asyncData">
+        <app-selection-box (selecteds)="check($event)"></app-selection-box>
+        <app-nope></app-nope>
+        <app-finished></app-finished>
+        @for (row of asyncData.macroData; track row; let rowIdx = $index) {
+            @for (data of row; track data.id; let nmbrIdx = $index) {
+                <app-data [data]="data" (mouseenter)="setAfraid(data)" #data></app-data>
+            }
+        }
+</div>

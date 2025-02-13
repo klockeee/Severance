@@ -1,0 +1,27 @@
+.finished {
+    position: absolute;
+    top: 42%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--background);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 20px 100px 20px 0px;
+
+    width: fit-content;
+    height: 30%;
+    z-index: 2;
+    font-size: 100px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    
+    box-sizing: border-box;
+}
+
+.finished-icon {
+    width: 400px;
+}
