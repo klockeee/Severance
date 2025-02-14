@@ -250,7 +250,7 @@ export class MacroDataRefinementStore extends ComponentStore<MacroDataRefinement
         const bin = information.bin;
         const amount = information.amount;
         
-        bin.add(100);
+        bin.add(amount);
 
         setTimeout(() => {
           bin.close();
